@@ -16,3 +16,6 @@ poetry.lock
 # IDE
 .idea/
 .vscode/
+
+#DS_Store
+.DS_Store
