@@ -21,18 +21,6 @@ cd cinema_booking_api
 poetry install
 ```
 
-Создайте файл `.env`:
-
-```dotenv
-DEBUG=True
-SECRET_KEY=your_secret_key
-ALLOWED_HOSTS=127.0.0.1,localhost
-DB_NAME=cinema
-DB_USER=cinema_user
-DB_PASSWORD=booking
-DB_HOST=localhost
-DB_PORT=5432
-```
 
 Примените миграции и запустите сервер:
 
@@ -48,13 +36,6 @@ make run
 ```bash
 make test
 ```
-или
-
-```bash
-DJANGO_ENV=test PYTHONPATH=src poetry run pytest --cov=apps --cov-report=term-missing
-```
-
-
 
 ## 🛠 ️ Команды Makefile
 
