@@ -47,6 +47,11 @@ INSTALLED_APPS = [
     'apps.movies',
     'rest_framework',
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.users.middleware.RoleRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -91,27 +97,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'PORT': '5432',
 #     }
 # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'cinema_booking',
-#         'USER': 'cinema_user',
-#         'PASSWORD': 'booking',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
+
 
 DATABASES = {
     'default': {
-        'ENGINE': config('DB_ENGINE'),
-        'NAME': config("DB_NAME"),
-        'USER': config("DB_USER"),
-        'PASSWORD': config("DB_PASSWORD"),
-        'HOST': config("DB_HOST"),
-        'PORT': config("DB_PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Connection with postgreSQL
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config('DB_ENGINE'),
+#         'NAME': config("DB_NAME"),
+#         'USER': config("DB_USER"),
+#         'PASSWORD': config("DB_PASSWORD"),
+#         'HOST': config("DB_HOST"),
+#         'PORT': config("DB_PORT"),
+#     }
+# }
 
 
 # Password validation

@@ -22,3 +22,5 @@ create_test_db:
 test:
 	DJANGO_ENV=test PYTHONPATH=src poetry run pytest --reuse-db --cov=apps --cov-report=term-missing
 
+shell:
+	poetry run python src/manage.py shell
