@@ -1,7 +1,7 @@
 from django.db import models
 
 class Hall(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=100)
     rows = models.PositiveIntegerField()
     seatsPerRow = models.PositiveIntegerField()
 

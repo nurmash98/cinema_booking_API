@@ -1,9 +1,9 @@
 run:
 	PYTHONPATH=src poetry run python src/manage.py runserver
 
-makemigrations:
-	@read -p "Enter migration name: " name; \
-	poetry run python src/manage.py makemigrations movies --name $$name
+# makemigrations:
+# 	@read -p "Enter migration name: " name; \
+# 	poetry run python src/manage.py makemigrations movies --name $$name
 
 
 migrate:
